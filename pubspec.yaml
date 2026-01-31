@@ -1,0 +1,37 @@
+name: smart_collage
+description: A professional college management application with live bus tracking and academic modules.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.1.1
+  dio: ^5.4.1
+  http: ^1.2.0
+  google_fonts: ^6.1.0
+  shared_preferences: ^2.2.2
+  intl: ^0.19.0
+  animate_do: ^3.3.4
+  font_awesome_flutter: ^10.7.0
+  flutter_spinkit: ^5.2.0
+  flutter_svg: ^2.0.9
+  shimmer: ^3.0.0
+  latlong2: ^0.9.0
+  flutter_map: ^6.1.0
+  socket_io_client: ^3.0.0-beta.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - assets/images/
