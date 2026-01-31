@@ -6,6 +6,7 @@ import 'my_class_list_screen.dart';
 import 'create_exam_schedule_screen.dart';
 import 'add_marks_screen.dart';
 import 'create_assignment_screen.dart';
+import 'live_class_attendance_screen.dart';
 
 class TeacherDashboard extends StatelessWidget {
   const TeacherDashboard({super.key});
@@ -47,6 +48,7 @@ class TeacherDashboard extends StatelessWidget {
             if (title == 'Student Requests') Navigator.push(context, MaterialPageRoute(builder: (_) => const StudentRequestsScreen()));
             if (title == 'Class Broadcast') Navigator.push(context, MaterialPageRoute(builder: (_) => const BroadcastScreen()));
             if (title == 'My Class List') Navigator.push(context, MaterialPageRoute(builder: (_) => const MyClassListScreen()));
+            if (title == 'Live Attendance') Navigator.push(context, MaterialPageRoute(builder: (_) => const LiveClassAttendanceScreen()));
             if (title == 'Post Exam Schedule') Navigator.push(context, MaterialPageRoute(builder: (_) => const CreateExamScheduleScreen()));
             if (title == 'Add Student Marks') Navigator.push(context, MaterialPageRoute(builder: (_) => const AddMarksScreen()));
             if (title == 'Create Assignment') Navigator.push(context, MaterialPageRoute(builder: (_) => const CreateAssignmentScreen()));

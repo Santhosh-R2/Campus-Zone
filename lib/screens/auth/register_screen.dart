@@ -27,12 +27,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _fetchTeachers() async {
     try {
-      final data = await ApiService().get('/teachers');
-      setState(() {
-        _teachers = data;
-      });
+      final data = await ApiService().get('/bus/all-users');
+      if (data is List) {
+        setState(() {
+          _teachers = data.where((u) => u['role'] == 'teacher').toList();
+        });
+      }
     } catch (e) {
-      // Handle error
+      debugPrint('Error fetching teachers: $e');
     }
   }
 
@@ -134,10 +136,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   delay: const Duration(milliseconds: 400),
                   child: DropdownButtonFormField<String>(
                     value: _selectedTeacherId,
-                    decoration: const InputDecoration(labelText: 'Select Class Teacher'),
-                    items: _teachers
-                        .map((t) => DropdownMenuItem(value: t['_id'] as String, child: Text(t['name'] as String)))
-                        .toList(),
+                    decoration: InputDecoration(
+                      labelText: 'Select Class Teacher',
+                      prefixIcon: const Icon(Icons.school),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    items: _teachers.map<DropdownMenuItem<String>>((t) {
+                      return DropdownMenuItem(value: t['_id'], child: Text(t['name']));
+                    }).toList(),
                     onChanged: (val) => setState(() => _selectedTeacherId = val),
                   ),
                 ),

@@ -6,6 +6,7 @@ import 'providers/bus_provider.dart';
 import 'providers/attendance_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/register_screen.dart';
+import 'screens/home/home_router.dart';
 import 'utils/app_theme.dart';
 
 void main() {

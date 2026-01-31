@@ -5,7 +5,7 @@ import 'trip_screen.dart';
 import 'passenger_manager_screen.dart';
 import 'route_screen.dart';
 import 'sos_screen.dart';
-import '../home/attendance_screen.dart';
+import 'coming_users_screen.dart';
 
 class DriverDashboard extends StatelessWidget {
   const DriverDashboard({super.key});
@@ -35,7 +35,7 @@ class DriverDashboard extends StatelessWidget {
                 children: [
                   _buildControlCard(context, 'My Passengers', Icons.people_outline, Colors.blue),
                   _buildControlCard(context, 'Optimize Route', Icons.directions_rounded, Colors.green),
-                  _buildControlCard(context, 'Attendance', Icons.how_to_reg_rounded, Colors.orange), // Reused for Attendance
+                  _buildControlCard(context, 'Coming List', Icons.how_to_reg_rounded, Colors.orange), // Now 'Coming List'
                   _buildControlCard(context, 'Emergency SOS', Icons.warning_amber_rounded, Colors.red),
                 ],
               ),
@@ -53,7 +53,7 @@ class DriverDashboard extends StatelessWidget {
           if (isStart) Navigator.push(context, MaterialPageRoute(builder: (_) => const TripScreen()));
           if (title == 'My Passengers') Navigator.push(context, MaterialPageRoute(builder: (_) => const PassengerManagerScreen()));
           if (title == 'Optimize Route') Navigator.push(context, MaterialPageRoute(builder: (_) => const RouteScreen()));
-          if (title == 'Attendance') Navigator.push(context, MaterialPageRoute(builder: (_) => const AttendanceScreen())); // Using shared
+          if (title == 'Coming List') Navigator.push(context, MaterialPageRoute(builder: (_) => const ComingUsersScreen()));
           if (title == 'Emergency SOS') Navigator.push(context, MaterialPageRoute(builder: (_) => const SOSScreen()));
         },
         child: Container(
