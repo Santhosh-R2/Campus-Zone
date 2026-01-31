@@ -11,6 +11,7 @@ class BusProvider extends ChangeNotifier {
   List<dynamic> _passengers = [];
   List<dynamic> _comingUsers = [];
   List<dynamic> _routeStops = [];
+  List<dynamic> _drivers = []; // Available drivers for selection
 
   bool get isLoading => _isLoading;
   Map<String, dynamic>? get prediction => _prediction;
@@ -18,6 +19,7 @@ class BusProvider extends ChangeNotifier {
   List<dynamic> get passengers => _passengers;
   List<dynamic> get comingUsers => _comingUsers;
   List<dynamic> get routeStops => _routeStops;
+  List<dynamic> get drivers => _drivers;
 
   Future<void> _performAction(Future<void> Function() action) async {
     _isLoading = true;
@@ -104,6 +106,16 @@ class BusProvider extends ChangeNotifier {
      await _performAction(() async {
       await _api.post('/bus/end-trip', {'driverId': driverId});
     });
+  }
+
+  // PUBLIC: Fetch Active Drivers
+  Future<void> fetchDrivers() async {
+     await _performAction(() async {
+       // We can reuse auth route or bus route if available. 
+       // User code `getUsersByRole` in authController is standard.
+       final res = await _api.get('/auth/users', queryParameters: {'role': 'driver'});
+       _drivers = res is List ? res : [];
+     });
   }
 
   // DRIVER: Trigger SOS

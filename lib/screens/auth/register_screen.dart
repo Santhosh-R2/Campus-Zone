@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../providers/auth_provider.dart';
+import '../common/location_picker_screen.dart';
+import 'package:latlong2/latlong.dart';
 import '../../services/api_service.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -17,6 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _passwordController = TextEditingController();
   String _selectedRole = 'student';
   String? _selectedTeacherId;
+  LatLng? _selectedLocation;
   List<dynamic> _teachers = [];
 
   @override
